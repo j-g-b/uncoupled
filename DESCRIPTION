@@ -1,0 +1,13 @@
+Package: uncoupled
+Title: Tools for nonparametric estimation of functions given uncoupled data.
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Jordan",
+           family = "Bryan",
+           role = c("aut", "cre"),
+           email = "jordan.bryan@duke.edu",
+           comment = c(ORCID = "0000-0002-4984-0516"))
+Description: This package implements methods in nonparametric uncoupled regression.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
