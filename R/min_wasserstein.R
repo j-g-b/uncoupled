@@ -88,8 +88,7 @@ min_wasserstein <- function(x, y, weights = NULL, V = NULL, cost_fun = NULL, sig
   }
   cat("\n")
   #
-  q_x <- uncoupled::quantile_func(x, alpha, best_mu)
-  print(best_mu)
+  q_x <- uncoupled::quantile_func(x, alpha, best_mu, w = cumsum(weights))
   #
   return(q_x)
 }

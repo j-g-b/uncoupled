@@ -56,14 +56,17 @@ initialize_mus <- function(alpha, y, sigma){
 #'
 #'
 #'
-quantile_func <- function(x, alpha, mus){
-  res <- rep(NA, length(x))
+quantile_func <- function(x, alpha, mus, w = NULL){
+  n <- length(x)
+  if(is.null(w)){
+    w <- seq(0, 1, length.out = n)[-1]
+  }
+  g_x <- rep(NA, n)
   F_x <- cumsum(mus[order(alpha)])
   F_x[length(F_x)] <- 1
   alpha_sort <- sort(alpha)
-  x_sort <- sort(x)
-  for(i in 1:length(res)){
-    res[i] <- alpha_sort[min(which(F_x >= x_sort[i]))]
+  for(i in 1:length(g_x)){
+    g_x[i] <- alpha_sort[min(which(F_x >= w[i]))]
   }
-  return(res)
+  return(g_x)
 }
